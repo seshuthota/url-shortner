@@ -13,7 +13,7 @@ interface Cached {
 
 // Use a type assertion to specify the type of global.mongoose
 declare global {
-  var mongoose: Cached | undefined;
+  let mongoose: Cached | undefined;
 }
 
 let cached = global.mongoose;
