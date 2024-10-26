@@ -11,13 +11,18 @@ interface Cached {
   promise: Promise<typeof mongoose> | null;
 }
 
-let cached: Cached = (global as any).mongoose;
-
-if (!cached) {
-  cached = (global as any).mongoose = { conn: null, promise: null };
+// Use a type assertion to specify the type of global.mongoose
+declare global {
+  var mongoose: Cached | undefined;
 }
 
-export async function connectToDatabase() {
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+export async function connectToDatabase(): Promise<typeof mongoose> {
   if (cached.conn) {
     return cached.conn;
   }
