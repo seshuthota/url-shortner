@@ -12,9 +12,11 @@ interface Cached {
 }
 
 // Use a type assertion to specify the type of global.mongoose
-declare global {
-  let mongoose: Cached | undefined;
+interface CustomNodeJsGlobal extends NodeJS.Global {
+  mongoose: Cached | undefined;
 }
+
+declare const global: CustomNodeJsGlobal;
 
 let cached = global.mongoose;
 
