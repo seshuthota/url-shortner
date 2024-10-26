@@ -27,7 +27,8 @@ const UrlShortenerForm: React.FC = () => {
       const data = await response.json();
       setShortUrl(data.shortUrl);
     } catch (err) {
-      setError('An error occurred while shortening the URL. Please try again.');
+      // Use the err variable to set a more specific error message
+      setError(`An error occurred while shortening the URL: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
       setIsLoading(false);
     }
