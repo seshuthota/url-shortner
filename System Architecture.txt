@@ -1,0 +1,67 @@
+[System Architecture Diagram: Short URL Generator (Next.js Version)]
+
+1. Client Layer:
+   - Web Browser
+   - (Future) Browser Extension
+
+2. Frontend Layer (Next.js):
+   - Pages:
+     - Home Page (URL Submission Form)
+     - URL List Page
+     - Analytics Page
+   - Components:
+     - URL Submission Form
+     - Shortened URL Display
+     - Copy to Clipboard Button
+     - URL List
+     - Analytics Display
+   - State Management:
+     - React Query / SWR
+
+3. API Layer (Next.js API Routes):
+   - POST /api/shorten
+   - GET /api/[shortCode]
+   - GET /api/stats/[shortCode]
+   - (Optional) Authentication Routes
+
+4. Backend Layer (Next.js Server-Side):
+   - URL Shortening Algorithm
+   - Rate Limiting Middleware
+   - Error Handling
+   - Input Validation
+   - (Optional) Authentication Logic
+
+5. Database Layer:
+   - MongoDB
+     - URL Mappings Collection
+     - (Optional) User Collection
+
+6. External Services:
+   - Logging and Error Tracking (e.g., Sentry)
+   - Performance Monitoring
+
+7. Security Layer:
+   - HTTPS
+   - CSRF Protection
+   - Input Sanitization
+
+8. Caching Layer:
+   - In-memory Cache (e.g., Redis)
+   - CDN for static assets
+
+9. Deployment:
+   - Hosting Platform (e.g., Vercel, Netlify, or custom server)
+   - MongoDB Atlas (for production database)
+
+10. DNS:
+    - Custom Domain
+    - DNS Configuration
+
+Arrows indicating data flow:
+- Client Layer <-> Frontend Layer
+- Frontend Layer <-> API Layer
+- API Layer <-> Backend Layer
+- Backend Layer <-> Database Layer
+- Backend Layer <-> Caching Layer
+- Backend Layer <-> External Services
+- All Layers <-> Security Layer
