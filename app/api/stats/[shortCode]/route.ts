@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { connectToDatabase } from '@/lib/mongodb';
-import UrlMapping from '@/models/UrlMapping';
+import { UrlMapping } from '@/models/UrlMapping';
 
 export async function GET(
   request: Request,

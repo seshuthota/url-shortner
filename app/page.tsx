@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { UrlShortenerForm } from '@/components/UrlShortenerForm';
+import UrlShortenerForm from '@/components/UrlShortenerForm';
 
 interface UrlMapping {
   _id: string;
@@ -36,7 +36,7 @@ export default function Home() {
       <div className="container mx-auto px-4">
         <h1 className="text-5xl font-bold mb-12 text-center">URL Shortener</h1>
         <div className="max-w-2xl mx-auto mb-16">
-          <UrlShortenerForm onUrlShortened={fetchUrls} />
+          <UrlShortenerForm />
         </div>
         
         <div className="mt-16">
